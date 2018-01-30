@@ -1,0 +1,91 @@
+<div class="container-fluid">
+	<div class="row" id="firstRow">
+	<!--nav stuff -->
+	<ul class="nav">
+		<li class="nav-item">
+	    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Show Saved Articles</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Get New Articles</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="#">Date of Last Update: {{returnedDate.date}}</a>
+	  </li>
+	</ul>
+	<!-- end nav -->
+
+	</div>
+		<div class="row" id="secondRow">
+			<div class="col-sm-12 col-lg-1">  </div>
+			<div class="col-sm-12 col-lg-10">
+				<img src="assets/images/cover.png" class="img-fluid">
+			</div>
+			<div class="col-sm-12 col-lg-1">  </div>
+		</div>
+
+		<div class="row" id="thirdRow">
+			<div class="col-sm-12 col-lg-1">  </div>
+			<div class="col-sm-12 col-lg-10" >
+					<div id="savedArticles">
+						Waiting for saved Articles..Please Be Patient<br>
+					</div>
+					{{!-- xx 	{{returnedStatus.status.status}} <br>
+					yy {{savedArtObject.savedArticles.title}} --}}
+					{{#if returnedStatus.status.status}}
+					<script>
+									$("#savedArticles").empty();
+									$("#savedArticles").html("Here are recently saved articles")
+					</script>
+					<ol>
+						{{#each savedArtObject.savedArticles}}
+								<li>
+											<p> Article: <a href={{link}} targer="new">{{title}}</a></p>
+								</li>
+						{{/each}}
+					</ol>					
+							{{else}}
+							<script>
+									$("#savedArticles").empty();
+							</script>
+									<p>{{savedArtObject.savedArticles.title}}</p>
+						{{/if}}
+
+
+						{{!-- {
+"_id": "5a64127460e202059498b986",
+"title": "helle1",
+"link": "link1",
+"__v": 0,
+"dateAdded": "2018-01-21T04:09:24.163Z"
+}, --}}
+
+			</div>
+			<div class="col-sm-12 col-lg-1">  </div>
+			
+		</div>
+
+</div>
+</div>
+
+<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Links from The Economist to Read Now or Save for Later</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{!-- {{this.tst}} --}}
+				<div id="article-values">
+					Getting Articles, please be patient..padawan!
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+	<!-- end modal --> 
