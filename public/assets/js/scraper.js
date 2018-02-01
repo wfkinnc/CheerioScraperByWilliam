@@ -16,7 +16,7 @@ $(document).ready(function(){
         // the response is added ot the article-values div thru jquery
         ////////////////////////////////////////////////////
         emptyDiv("new-article");
-
+        emptyDiv("saved-article")
         $.ajax("/api/getNewArticles",{
             type: "GET"
         }).then(
@@ -183,141 +183,18 @@ $(document).ready(function(){
         saveImg.attr("data-id",$(this).attr("data-id"));
         saveImg.attr("id","saveImage")
 
-        // var hldCmmtBtn = $("<button>");
-
-        // hldCmmtBtn.addClass=("btn btn-secondary add-comment");
-        // hldCmmtBtn.attr("type", "button");
-        // hldCmmtBtn.attr("data-id", ($(this).attr("data-id")));
-        // hldCmmtBtn.attr("id","btn-new-comment");
-        // hldCmmtBtn.text("Save");
-
         cmmtDiv2.append(cmmtSpan1);
         cmmtDiv1.append(cmmtDiv2) ;
         cmmtDiv1.append(cmmtTextArea1);
 
-        // // (breakLine);
-         cmmtDiv4.append(cmmtSpan2);
-         cmmtDiv3.append(cmmtDiv4);
-         cmmtDiv3.append(cmmtTextArea2);
-        //  cmmtDiv3.append(hldCmmtBtn);
+        cmmtDiv4.append(cmmtSpan2);
+        cmmtDiv3.append(cmmtDiv4);
+        cmmtDiv3.append(cmmtTextArea2);
         cmmtDiv3.append(saveImg);
-        //  $("add-comment-area").append(hldCmmtBtn);
-        //  $("#show-comment-area").append(cmmtDiv1);
- //        $("#show-comment-area").append(cmmtHTML);
-        //  cmmtHTML
        $("#add-comment-area").append(cmmtDiv3);
 
     });//
 
-//     $(".deleteArticle").on("click",function(){
-//         ///////////////////////////////////////////////////
-//         // Opens the modal to delete the article
-//         ///////////////////////////////////////////////////
-//         console.log("from scraper.js/.deleteArticle - Send ") 
-//         location.reload();       
-//         // gets teh saved comments for the id
-// //         $("#article-values").empty();
-// //         $("#show-comment-area").empty();
-// //         $("#add-comment-area").empty();
-// //         $("#article-values").html("<h6>Existing Notes</h6>");
-
-// //         const getCommentInfo = {
-// //             articleKey: $(this).attr("data-id")
-// //         };
-// //         // $.ajax("/api/getSavedComments/" + $(this).attr("data-id"),{
-// //         //     type: "GET",
-// //         // })
-// //         console.log("from scraper (.createComments " + JSON.stringify(getCommentInfo));
-// //         $.ajax("/api/getSavedComments",{
-// //             type: "POST",
-// //             data: getCommentInfo
-// //         })
-// //         .then((result) =>{
-         
-// //             console.log("from scraper/getSAvedComments - inbout " + JSON.stringify(result))
-// //             var p = "";
-// //             var img = "";
-// //             var orList = $("<ol>");
-// //             for (var index in result.savedComments){
-
-// //                 // p = $("<p>");
-// //                 // p.html(index + ". " + result.savedComments[index].note) ;
-// //                 // p.css("display","inline");
-// //                 var listItem = $("<li>")
-// //                 listItem.html(result.savedComments[index].note);
-// //                 img = $("<img/>");
-// //                 img.attr("src","/assets/images/ic_delete_forever_black_24px.svg");
-// //                 img.attr("data-id",result.savedComments[index]._id)
-// //                 listItem.append(img)
-// //                 orList.append(listItem);
-// //                 $("#show-comment-area").append(orList);
-// //             }//end for
-
-
-// //         })
-
-// //         let cmmtDiv1 = $("<div>");
-// //         cmmtDiv1.addClass("input-group mb-3");
-
-// //         var cmmtDiv2 = $("<div>");
-// //         cmmtDiv2.addClass("input-group-prepend");
-
-// //         var cmmtSpan1 = $("<span>");
-// //         cmmtSpan1.addClass("input-group-text");
-// //         cmmtSpan1.text("Show Comment");
-
-// //         var cmmtTextArea1 = $("<textArea>");
-// //         cmmtTextArea1.addClass("form-control");
-// //         cmmtTextArea1.attr("aria-label","With textarea")
-// //         cmmtTextArea1.attr("id","showComments")
-     
-// //         let cmmtDiv3 = $("<div>");
-// //          cmmtDiv3.addClass("input-group mb-3");
-
-// //         var cmmtDiv4 = $("<div>");
-// //         cmmtDiv4.addClass("input-group-prepend");
-
-// //         var cmmtSpan2 = $("<span>");
-// //         cmmtSpan2.addClass("input-group-text");
-// //         cmmtSpan2.html("<h4>Add Comment</h4>");
-// //         cmmtSpan2.html("<br>");
-
-// //         var cmmtTextArea2 = $("<textArea>");
-// //         cmmtTextArea2.addClass("form-control");
-// //         cmmtTextArea2.attr("aria-label","With textarea")
-// //         cmmtTextArea2.attr("id","txt-new-comment")
-// //         cmmtTextArea2.attr("placeholder","Add New Comment");
-        
-// //         var saveImg = $("<img/>");
-// //         saveImg.attr("src","/assets/images/save.svg");
-// //         saveImg.attr("data-id",$(this).attr("data-id"));
-// //         saveImg.attr("id","saveImage")
-
-// //         // var hldCmmtBtn = $("<button>");
-
-// //         // hldCmmtBtn.addClass=("btn btn-secondary add-comment");
-// //         // hldCmmtBtn.attr("type", "button");
-// //         // hldCmmtBtn.attr("data-id", ($(this).attr("data-id")));
-// //         // hldCmmtBtn.attr("id","btn-new-comment");
-// //         // hldCmmtBtn.text("Save");
-
-// //         cmmtDiv2.append(cmmtSpan1);
-// //         cmmtDiv1.append(cmmtDiv2) ;
-// //         cmmtDiv1.append(cmmtTextArea1);
-
-// //         // // (breakLine);
-// //          cmmtDiv4.append(cmmtSpan2);
-// //          cmmtDiv3.append(cmmtDiv4);
-// //          cmmtDiv3.append(cmmtTextArea2);
-// //         //  cmmtDiv3.append(hldCmmtBtn);
-// //         cmmtDiv3.append(saveImg);
-// //         //  $("add-comment-area").append(hldCmmtBtn);
-// //         //  $("#show-comment-area").append(cmmtDiv1);
-// //  //        $("#show-comment-area").append(cmmtHTML);
-// //         //  cmmtHTML
-// //        $("#add-comment-area").append(cmmtDiv3);
-
-//     });// end delee
 
 
     $("#btn-get-saved-articles").on("click",function(){

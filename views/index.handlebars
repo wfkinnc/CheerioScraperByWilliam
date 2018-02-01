@@ -1,20 +1,25 @@
+
+
 <div class="container-fluid">
 	<div class="row" id="firstRow">
-	<!--nav stuff -->
-	<ul class="nav">
-		<li class="nav-item">
-	    <a class="nav-link"  id="btn-get-saved-articles" href="/api/getSavedArticles">Show Saved Articles</a>
-			{{!-- //data-toggle="modal" data-target="#exampleModal" --}}
-	  </li>
-	  <li class="nav-item">
-	    {{!-- <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">Get New Articles</a> --}}
-	    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" id="btn-get-new-articles" href="#">Get New Articles</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Date of Last Update: {{returnedDate.date}}</a>
-	  </li>
-	</ul>
-	<!-- end nav -->
+
+<nav class="navbar navbar-expand-lg navbar-light">
+ 
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+					<a class="nav-link"  id="btn-get-saved-articles" href="/api/getSavedArticles"><h2>Show Saved Articles</h2></a>
+      </li>
+      <li class="nav-item">
+        
+		    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" id="btn-get-new-articles" href="#"><h2>Get New Articles</h2></a>
+
+      </li>
+      
+    </ul>
+  </div>
+</nav>
 
 	</div>
 		<div class="row" id="secondRow">
@@ -45,12 +50,8 @@
 							{{#each retArticles}}
 									<li>
 												<p> Article: <a href="http://www.economist.com{{link}}" target="new" >{{title}}</a></p>
-													    {{!-- <a class="nav-link" data-toggle="modal" data-target="#exampleModal" id="btn-get-new-articles" href="#">Get New Articles</a> --}}
 															 <a class="nav-link" data-toggle="modal" data-target="#exampleModal"  id="btn-create-comment" href="#">Create Comment</a>
 															 <a class="nav-link"  id="btn-delete-article" href="/api/deleteArticle/{{_id}}">Delete Article</a>
-{{!-- 
-												<p><input type="button" data-toggle="modal" data-target="#exampleModal" class="createComments" data-src="add" data-id={{_id}} value="Create Comment"></input>
-												   <input type="button" data-toggle="modal" data-target="#exampleModal" class="deleteArticle"  data-src="del" data-id={{_id}} value="Delete Article"></input></p> --}}
 									</li>
 							{{/each}}
 							{{/if}}

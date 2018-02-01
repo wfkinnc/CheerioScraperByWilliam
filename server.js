@@ -42,31 +42,20 @@ mongoose.connect("mongodb://localhost/scrapedarticles",{
   useMongoClient: true
 });
 
-// test for adding'
-// var result  = {};
 
-// console.log("trying to add to db")
-// result.title="helle1";
-// result.link="link1";
-// db.SavedArticles
-//   .create(result)
-//   .then(function(tstArticle){
-//     console.log(tstArticle)
-//     console.log("add complete");
-//   })
-//   .catch(function(err){
-//     console.log("error " + err);
-//   })
+// acct name: wfkinnc
+// email: wkassebaum@rocketmail.com
+// username: wfkinnc
+// pswd: Hk426624
+// db - wfk-bootcamp
 
-// db.SavedArticles
-// .count()
-// .then(function(retCount){
-//   console.log(".. cont " + retCount)
-// })
-// .catch(function(err){
-//   console.log("error" + err)
-// })
-// end test
+// To connect using the mongo shell:
+// mongo ds239387.mlab.com:39387/wfk-bootcamp -u <dbuser> -p <dbpassword>
+// To connect using a driver via the standard MongoDB URI (what's this?):
+
+// mongodb://<dbuser>:<dbpassword>@ds239387.mlab.com:39387/wfk-bootcamp
+
+
 
 app.use("/",routes);
 
