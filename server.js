@@ -41,7 +41,6 @@ var routes = require("./controllers/scraperController.js");
 mongoose.Promise = Promise;
 console.log(process.env.urlMongoose)
  mongoose.connect(process.env.urlMongoose,{
-//  mongoose.connect( "mongodb://localhost/scrapedarticles",{
   useMongoClient: true
 });
 
