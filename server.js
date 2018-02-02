@@ -4,10 +4,11 @@ var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
+require('dotenv').config({path: './config/.env'});
 
 // Specify the port.
+//var port = process.env.PORT|| 3000;
 var port = 3000;
-
 
 // Create an instance of the express app.
 var app = express();
@@ -38,23 +39,11 @@ var routes = require("./controllers/scraperController.js");
 // connects to Mongoose DB
 ////////////////////////////////////////////////////////////////
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/scrapedarticles",{
+console.log(process.env.urlMongoose)
+ mongoose.connect(process.env.urlMongoose,{
+//  mongoose.connect( "mongodb://localhost/scrapedarticles",{
   useMongoClient: true
 });
-
-
-// acct name: wfkinnc
-// email: wkassebaum@rocketmail.com
-// username: wfkinnc
-// pswd: Hk426624
-// db - wfk-bootcamp
-
-// To connect using the mongo shell:
-// mongo ds239387.mlab.com:39387/wfk-bootcamp -u <dbuser> -p <dbpassword>
-// To connect using a driver via the standard MongoDB URI (what's this?):
-
-// mongodb://<dbuser>:<dbpassword>@ds239387.mlab.com:39387/wfk-bootcamp
-
 
 
 app.use("/",routes);
