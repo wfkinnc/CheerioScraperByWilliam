@@ -8,7 +8,7 @@ require('dotenv').config({path: './config/.env'});
 
 // Specify the port.
 //var port = process.env.PORT|| 3000;
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 // Create an instance of the express app.
 var app = express();
