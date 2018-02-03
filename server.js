@@ -39,13 +39,23 @@ var routes = require("./controllers/scraperController.js");
 // connects to Mongoose DB
 ////////////////////////////////////////////////////////////////
 mongoose.Promise = Promise;
-console.log(process.env.urlMongoose)
- mongoose.connect(process.env.urlMongoose,{
-  useMongoClient: true
-});
+
+
+
+// mongoose.connect(process.env.urlMongoose,{
+//   useMongoClient: true
+// });
 
 
 app.use("/",routes);
 
 // Initiate the listener.
-app.listen(port);
+app.listen(port,function(){
+
+mongoose.createConnection(process.env.urlMongoose, {
+  useMongoClient: true
+}).then(success => console.log(success))
+  .catch(err => console.log(err));
+
+
+});

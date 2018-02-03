@@ -15,10 +15,10 @@ var mongoose = require("mongoose");
 ////////////////////////////////////////////////////////////////
 // connects to Mongoose DB
 ////////////////////////////////////////////////////////////////
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/scrapedarticles",{
-  useMongoClient: true
-})
+// mongoose.Promise = Promise;
+// mongoose.connect("mongodb://localhost/scrapedarticles",{
+//   useMongoClient: true
+// })
 // imports the SavedArticles and Site Dates.
 var db = require("../models");
 
