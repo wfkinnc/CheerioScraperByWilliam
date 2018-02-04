@@ -8,6 +8,11 @@ var request = require("request");
 var zlib    = require("zlib");
 
 ////////////////////////////////
+// for the environment parameters
+////////////////////////////////
+
+require('dotenv').config({path: './config/.env'});
+////////////////////////////////
 // For Mongoose
 ////////////////////////////////
 var mongoose = require("mongoose");
@@ -15,11 +20,12 @@ var mongoose = require("mongoose");
 ////////////////////////////////////////////////////////////////
 // connects to Mongoose DB
 ////////////////////////////////////////////////////////////////
-// mongoose.Promise = Promise;
+mongoose.Promise = Promise;
 // mongoose.connect("mongodb://localhost/scrapedarticles",{
-//   useMongoClient: true
-// })
-// imports the SavedArticles and Site Dates.
+mongoose.connect(process.env.urlMongoose,{
+  useMongoClient: true
+})
+// // imports the SavedArticles and Site Dates.
 var db = require("../models");
 
 

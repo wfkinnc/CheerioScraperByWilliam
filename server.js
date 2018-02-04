@@ -4,10 +4,11 @@ var exphbs = require("express-handlebars");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
-require('dotenv').config({path: './config/.env'});
+// require('dotenv').config({path: './config/.env'});
 
 // Specify the port.
 //var port = process.env.PORT|| 3000;
+console.log("port " + process.env.PORT);
 var port = process.env.PORT || 3000;
 
 // Create an instance of the express app.
@@ -51,8 +52,9 @@ app.use("/",routes);
 
 // Initiate the listener.
 app.listen(port,function(){
-
-mongoose.createConnection(process.env.urlMongoose, {
+//mongoose.connect("mongodb://localhost/scrapedarticles",{
+//mongoose.createConnection(process.env.urlMongoose, {
+  mongoose.createConnection("mongodb://localhost/scrapedarticles", {
   useMongoClient: true
 }).then(success => console.log(success))
   .catch(err => console.log(err));
